@@ -1,5 +1,6 @@
 import sys
 
+sys.path.append('..')
 from exceptions import (
     BranchesNotBalancedError,
     ClosingBranchError,
@@ -13,7 +14,7 @@ from exceptions import (
     ProcedureInLoopError,
     TranslatorArgumentsError,
 )
-from instruction_io import Opcode, Instruction, save_instructions_to_file
+from instruction import Opcode, Instruction, save_instructions_to_file
 
 token_set = {
     "+", "-", "*", "/", "mod", "dup", "drop", "swap", "begin", "until", "=", "!=", ">", "<", ".", "exit", "!", "@", "#", "if", "else", "endif", "emit"

@@ -1,1 +1,4 @@
 resources/
+.vscode/
+src/__pycache__/
+src/language/__pycache__/

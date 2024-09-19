@@ -2,10 +2,10 @@ import logging
 import sys
 sys.path.append('..')
 
-from computer.computer import ControlUnit
-from computer.memory import DataPath
+from computer import ControlUnit
+from memory import DataPath
 from exceptions import WrongMachineArgumentsError
-from instruction import load_instructions_from_file
+from language.instruction import load_instructions_from_file
 
 
 def main(code_file, input_file):

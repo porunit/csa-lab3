@@ -1,14 +1,13 @@
 import logging
 from typing import ClassVar
 import sys
-sys.path.append('../language')
-sys.path.append('..')
 
 
-from computer.memory import INSTRACTION_LIMIT
+
+import memory
 from exceptions import InvalidSignalError
-from instruction import Opcode
-from computer.controls import (
+from language.instruction import Opcode
+from controls import (
     JumpOperation,
     ProgramControl,
     AluOperation,
@@ -134,29 +133,29 @@ microcode = [
 
 class ControlUnit:
     mc_adr = None
-    datapath = None
+    memory = None
     tick = None
     instraction_count = None
     signal_handlers: ClassVar[dict] = {}
 
-    def __init__(self, datapath):
+    def __init__(self, memory):
         self.mc_adr = 0
-        self.datapath = datapath
+        self.memory = memory
         self.tick = 0
         self.instraction_count = 0
         self.signal_handlers = {
-            AddressRegisterControl: [getattr(self.datapath, "address_register_latch"), 2],
-            MemoryControl: [getattr(self.datapath, "memory_latch"), 2],
-            MicrocodeAddressControl: [getattr(self, "mc_adr_latch"), 2],
-            InstructionRegisterControl: [getattr(self.datapath, "mem_value_to_ir"), 1],
-            ALUValuesControl: [getattr(self.datapath, "alu_values_get"), 1],
-            AluOperation: [getattr(self.datapath, "alu_latch"), 2],
-            TopOfStackControl: [getattr(self.datapath, "tos_latch"), 2],
-            ProgramCounterControl: [getattr(self.datapath, "pc_latch"), 2],
-            DataStackControl: [getattr(self.datapath, "data_stack_latch"), 2],
-            BufferRegisterControl: [getattr(self.datapath, "write_buffer_register"), 1],
-            IOOperation: [getattr(self.datapath, "io_latch"), 2],
-            JumpOperation: [getattr(self.datapath, "jump"), 2],
+            AddressRegisterControl: [getattr(self.memory, "control_address_register"), 2],
+            MemoryControl: [getattr(self.memory, "control_memory"), 2],
+            MicrocodeAddressControl: [getattr(self, "control_microcode_address"), 2],
+            InstructionRegisterControl: [getattr(self.memory, "load_memory_to_instruction_register"), 1],
+            ALUValuesControl: [getattr(self.memory, "load_alu_values"), 1],
+            AluOperation: [getattr(self.memory, "execute_alu_operation"), 2],
+            TopOfStackControl: [getattr(self.memory, "control_top_of_stack"), 2],
+            ProgramCounterControl: [getattr(self.memory, "control_program_counter"), 2],
+            DataStackControl: [getattr(self.memory, "control_data_stack"), 2],
+            BufferRegisterControl: [getattr(self.memory, "write_to_buffer_register"), 1],
+            IOOperation: [getattr(self.memory, "control_io"), 2],
+            JumpOperation: [getattr(self.memory, "handle_jump"), 2],
             InstructionControl: [getattr(self, "inc_instraction_count"), 1],
         }
 
@@ -165,15 +164,15 @@ class ControlUnit:
             "TICK: {:4} PC: {:3} ADDR: {:3} mcADDR: {:2} SIGNAL: {:15} TOS: {:6} Z: {:1} N: {:1} V: {:1}\n" "DS: {}"
         ).format(
             str(self.tick),
-            str(self.datapath.pc),
-            str(self.datapath.address_register),
+            str(self.memory.pc),
+            str(self.memory.address_register),
             str(self.mc_adr),
             str(signal),
-            str(self.datapath.top_of_stack) if self.datapath.top_of_stack is not None else "0",
-            str(self.datapath.alu.z_flag),
-            str(self.datapath.alu.n_flag),
-            str(self.datapath.alu.v_flag),
-            self.datapath.data_stack.stack,
+            str(self.memory.top_of_stack) if self.memory.top_of_stack is not None else "0",
+            str(self.memory.alu.zero_flag),
+            str(self.memory.alu.negative_flag),
+            str(self.memory.alu.overflow_flag),
+            self.memory.data_stack.stack,
         )
 
     def inc_tick(self):
@@ -197,10 +196,10 @@ class ControlUnit:
             logging.debug("%s", self.__repr__(signal))
             self.inc_tick()
 
-    def mc_adr_latch(self, signal):
+    def control_microcode_address(self, signal):
         match signal:
             case MicrocodeAddressControl.IR:
-                self.mc_adr = opcode2microcode(self.datapath.instraction_register["opcode"])
+                self.mc_adr = opcode2microcode(self.memory.instruction_register["opcode"])
             case MicrocodeAddressControl.INC:
                 self.mc_adr += 1
             case MicrocodeAddressControl.ZERO:
@@ -208,15 +207,15 @@ class ControlUnit:
 
     def run_machine(self):
         try:
-            while self.instraction_count < INSTRACTION_LIMIT:
+            while self.instraction_count < memory.INSTRUCTION_LIMIT:
                 self.execute_instraction(microcode[self.mc_adr])
         except StopIteration:
             pass
         except OSError:
             pass
         output = ""
-        for stroka in "".join(self.datapath.output_buffer).split("\n"):
+        for stroka in "".join(self.memory.output_buffer).split("\n"):
             tabs = 4 * '\t'
             output += f"{tabs}{stroka}\n"
         logging.debug("output_buffer: \n" + output[0:-1])
-        return self.datapath.output_buffer, self.instraction_count, self.tick
+        return self.memory.output_buffer, self.instraction_count, self.tick

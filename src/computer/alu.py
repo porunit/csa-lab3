@@ -10,13 +10,13 @@ ALU_OPERATIONS = [
     # MODULO - 4
     lambda x, y: x % y,
     # NOT EQUAL - 5
-    lambda x, y: 1 if x != y else 0,
+    lambda x, y: x != y,
     # EQUAL - 6
-    lambda x, y: 1 if x == y else 0,
+    lambda x, y: x == y,
     # LESS THAN - 7
-    lambda x, y: 1 if x < y else 0,
+    lambda x, y: x < y,
     # GREATER THAN - 8
-    lambda x, y: 1 if x > y else 0,
+    lambda x, y: x > y,
 ]
 
 MAX_INT = 2**31 - 1

@@ -1,0 +1,1204 @@
+in_source: |-
+  : cat
+      begin
+          #           
+          dup    
+          dup
+          emit    
+          0 =          
+      until                      
+  ;
+  cat
+  exit
+in_stdin: |-
+  amogus
+out_code: |-
+  [{"index": 0, "opcode": "read", "term": [3, 1, "#"]},
+  {"index": 1, "opcode": "dup", "term": [4, 1, "dup"]},
+  {"index": 2, "opcode": "dup", "term": [5, 1, "dup"]},
+  {"index": 3, "opcode": "emit", "term": [6, 1, "emit"]},
+  {"index": 4, "opcode": "push", "arg": "0", "term": [7, 1, "0"]},
+  {"index": 5, "opcode": "eq", "term": [7, 2, "="]},
+  {"index": 6, "opcode": "jzs", "arg": 0},
+  {"index": 7, "opcode": "halt", "term": [11, 1, "exit"]}]
+out_stdout: |-
+  ============================================================
+  amogus
+
+  instraction count -> 100
+  tick -> 637
+out_log: |-
+  [DEBUG]  tick -> 0    ip -> 1   addr -> 1   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+  stack -> []
+  [DEBUG]  tick -> 1    ip -> 1   addr -> 1   mc -> 0  control -> MemoryControl.READ tos -> 0     
+  stack -> []
+  [DEBUG]  tick -> 2    ip -> 1   addr -> 1   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> []
+  [DEBUG]  tick -> 3    ip -> 1   addr -> 1   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+  stack -> []
+  [DEBUG]  tick -> 4    ip -> 1   addr -> 1   mc -> 1  control -> InstructionControl.INC tos -> 0     
+  stack -> []
+  [DEBUG]  tick -> 5    ip -> 1   addr -> 1   mc -> 44 control -> MicrocodeAddressControl.IR tos -> 0     
+  stack -> []
+  [DEBUG]  tick -> 6    ip -> 1   addr -> 1   mc -> 44 control -> DataStackControl.Push tos -> 0     
+  stack -> []
+  [DEBUG]  tick -> 7    ip -> 1   addr -> 1   mc -> 45 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> []
+  [DEBUG]  Input: a
+  [DEBUG]  tick -> 8    ip -> 1   addr -> 1   mc -> 45 control -> IOOperation.READ tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 9    ip -> 1   addr -> 1   mc -> 45 control -> InstructionControl.INC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 10   ip -> 2   addr -> 1   mc -> 45 control -> InstractionPointerControl.INC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 11   ip -> 2   addr -> 1   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 12   ip -> 2   addr -> 2   mc -> 0  control -> AddressRegisterControl.PC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 13   ip -> 2   addr -> 2   mc -> 0  control -> MemoryControl.READ tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 14   ip -> 2   addr -> 2   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 15   ip -> 2   addr -> 2   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 16   ip -> 2   addr -> 2   mc -> 1  control -> InstructionControl.INC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 17   ip -> 2   addr -> 2   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 18   ip -> 2   addr -> 2   mc -> 12 control -> DataStackControl.Push tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 19   ip -> 2   addr -> 2   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 20   ip -> 3   addr -> 2   mc -> 13 control -> InstractionPointerControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 21   ip -> 3   addr -> 2   mc -> 13 control -> InstructionControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 22   ip -> 3   addr -> 2   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 23   ip -> 3   addr -> 3   mc -> 0  control -> AddressRegisterControl.PC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 24   ip -> 3   addr -> 3   mc -> 0  control -> MemoryControl.READ tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 25   ip -> 3   addr -> 3   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 26   ip -> 3   addr -> 3   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 27   ip -> 3   addr -> 3   mc -> 1  control -> InstructionControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 28   ip -> 3   addr -> 3   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 29   ip -> 3   addr -> 3   mc -> 12 control -> DataStackControl.Push tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 30   ip -> 3   addr -> 3   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 31   ip -> 4   addr -> 3   mc -> 13 control -> InstractionPointerControl.INC tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 32   ip -> 4   addr -> 3   mc -> 13 control -> InstructionControl.INC tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 33   ip -> 4   addr -> 3   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 34   ip -> 4   addr -> 4   mc -> 0  control -> AddressRegisterControl.PC tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 35   ip -> 4   addr -> 4   mc -> 0  control -> MemoryControl.READ tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 36   ip -> 4   addr -> 4   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 37   ip -> 4   addr -> 4   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 38   ip -> 4   addr -> 4   mc -> 1  control -> InstructionControl.INC tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 39   ip -> 4   addr -> 4   mc -> 46 control -> MicrocodeAddressControl.IR tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  Output: a << a
+  [DEBUG]  tick -> 40   ip -> 4   addr -> 4   mc -> 46 control -> IOOperation.EMIT tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 41   ip -> 4   addr -> 4   mc -> 47 control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 42   ip -> 4   addr -> 4   mc -> 47 control -> BufferRegisterControl.DS tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 43   ip -> 4   addr -> 4   mc -> 47 control -> TopOfStackControl.BR tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 44   ip -> 4   addr -> 4   mc -> 48 control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 45   ip -> 5   addr -> 4   mc -> 48 control -> InstractionPointerControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 46   ip -> 5   addr -> 4   mc -> 48 control -> InstructionControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 47   ip -> 5   addr -> 4   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 48   ip -> 5   addr -> 5   mc -> 0  control -> AddressRegisterControl.PC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 49   ip -> 5   addr -> 5   mc -> 0  control -> MemoryControl.READ tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 50   ip -> 5   addr -> 5   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 51   ip -> 5   addr -> 5   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 52   ip -> 5   addr -> 5   mc -> 1  control -> InstructionControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 53   ip -> 5   addr -> 5   mc -> 25 control -> MicrocodeAddressControl.IR tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 54   ip -> 5   addr -> 5   mc -> 25 control -> DataStackControl.Push tos -> 97    
+  stack -> [97, 97]
+  [DEBUG]  tick -> 55   ip -> 5   addr -> 5   mc -> 25 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 56   ip -> 5   addr -> 5   mc -> 26 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 57   ip -> 6   addr -> 5   mc -> 26 control -> InstractionPointerControl.INC tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 58   ip -> 6   addr -> 5   mc -> 26 control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 59   ip -> 6   addr -> 5   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 60   ip -> 6   addr -> 6   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 61   ip -> 6   addr -> 6   mc -> 0  control -> MemoryControl.READ tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 62   ip -> 6   addr -> 6   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 63   ip -> 6   addr -> 6   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 64   ip -> 6   addr -> 6   mc -> 1  control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 65   ip -> 6   addr -> 6   mc -> 19 control -> MicrocodeAddressControl.IR tos -> 0     
+  stack -> [97, 97]
+  [DEBUG]  tick -> 66   ip -> 6   addr -> 6   mc -> 19 control -> ALUValuesControl.VAR tos -> 0     
+  stack -> [97]
+  [DEBUG]  tick -> 67   ip -> 6   addr -> 6   mc -> 19 control -> AluOperation.EQ tos -> 0     
+  stack -> [97]
+  [DEBUG]  tick -> 68   ip -> 6   addr -> 6   mc -> 20 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97]
+  [DEBUG]  tick -> 69   ip -> 6   addr -> 6   mc -> 20 control -> TopOfStackControl.ALU tos -> False 
+  stack -> [97]
+  [DEBUG]  tick -> 70   ip -> 7   addr -> 6   mc -> 20 control -> InstractionPointerControl.INC tos -> False 
+  stack -> [97]
+  [DEBUG]  tick -> 71   ip -> 7   addr -> 6   mc -> 20 control -> InstructionControl.INC tos -> False 
+  stack -> [97]
+  [DEBUG]  tick -> 72   ip -> 7   addr -> 6   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> False 
+  stack -> [97]
+  [DEBUG]  tick -> 73   ip -> 7   addr -> 7   mc -> 0  control -> AddressRegisterControl.PC tos -> False 
+  stack -> [97]
+  [DEBUG]  tick -> 74   ip -> 7   addr -> 7   mc -> 0  control -> MemoryControl.READ tos -> False 
+  stack -> [97]
+  [DEBUG]  tick -> 75   ip -> 7   addr -> 7   mc -> 1  control -> MicrocodeAddressControl.INC tos -> False 
+  stack -> [97]
+  [DEBUG]  tick -> 76   ip -> 7   addr -> 7   mc -> 1  control -> InstructionRegisterControl.MEM tos -> False 
+  stack -> [97]
+  [DEBUG]  tick -> 77   ip -> 7   addr -> 7   mc -> 1  control -> InstructionControl.INC tos -> False 
+  stack -> [97]
+  [DEBUG]  tick -> 78   ip -> 7   addr -> 7   mc -> 35 control -> MicrocodeAddressControl.IR tos -> False 
+  stack -> [97]
+  [DEBUG]  tick -> 79   ip -> 7   addr -> 7   mc -> 35 control -> DataStackControl.Push tos -> False 
+  stack -> [97, False]
+  [DEBUG]  tick -> 80   ip -> 7   addr -> 7   mc -> 35 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, False]
+  [DEBUG]  tick -> 81   ip -> 0   addr -> 7   mc -> 35 control -> JumpOperation.JZS tos -> 0     
+  stack -> [97, False]
+  [DEBUG]  tick -> 82   ip -> 0   addr -> 7   mc -> 36 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, False]
+  [DEBUG]  tick -> 83   ip -> 0   addr -> 7   mc -> 36 control -> DataStackControl.Pop tos -> 0     
+  stack -> [97]
+  [DEBUG]  tick -> 84   ip -> 0   addr -> 7   mc -> 36 control -> BufferRegisterControl.DS tos -> 0     
+  stack -> []
+  [DEBUG]  tick -> 85   ip -> 0   addr -> 7   mc -> 36 control -> TopOfStackControl.BR tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 86   ip -> 0   addr -> 7   mc -> 37 control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 87   ip -> 1   addr -> 7   mc -> 37 control -> InstractionPointerControl.INC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 88   ip -> 1   addr -> 7   mc -> 37 control -> InstructionControl.INC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 89   ip -> 1   addr -> 7   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 90   ip -> 1   addr -> 1   mc -> 0  control -> AddressRegisterControl.PC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 91   ip -> 1   addr -> 1   mc -> 0  control -> MemoryControl.READ tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 92   ip -> 1   addr -> 1   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 93   ip -> 1   addr -> 1   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 94   ip -> 1   addr -> 1   mc -> 1  control -> InstructionControl.INC tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 95   ip -> 1   addr -> 1   mc -> 44 control -> MicrocodeAddressControl.IR tos -> 97    
+  stack -> []
+  [DEBUG]  tick -> 96   ip -> 1   addr -> 1   mc -> 44 control -> DataStackControl.Push tos -> 97    
+  stack -> [97]
+  [DEBUG]  tick -> 97   ip -> 1   addr -> 1   mc -> 45 control -> MicrocodeAddressControl.INC tos -> 97    
+  stack -> [97]
+  [DEBUG]  Input: m
+  [DEBUG]  tick -> 98   ip -> 1   addr -> 1   mc -> 45 control -> IOOperation.READ tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 99   ip -> 1   addr -> 1   mc -> 45 control -> InstructionControl.INC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 100  ip -> 2   addr -> 1   mc -> 45 control -> InstractionPointerControl.INC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 101  ip -> 2   addr -> 1   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 102  ip -> 2   addr -> 2   mc -> 0  control -> AddressRegisterControl.PC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 103  ip -> 2   addr -> 2   mc -> 0  control -> MemoryControl.READ tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 104  ip -> 2   addr -> 2   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 105  ip -> 2   addr -> 2   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 106  ip -> 2   addr -> 2   mc -> 1  control -> InstructionControl.INC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 107  ip -> 2   addr -> 2   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 108  ip -> 2   addr -> 2   mc -> 12 control -> DataStackControl.Push tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 109  ip -> 2   addr -> 2   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 110  ip -> 3   addr -> 2   mc -> 13 control -> InstractionPointerControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 111  ip -> 3   addr -> 2   mc -> 13 control -> InstructionControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 112  ip -> 3   addr -> 2   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 113  ip -> 3   addr -> 3   mc -> 0  control -> AddressRegisterControl.PC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 114  ip -> 3   addr -> 3   mc -> 0  control -> MemoryControl.READ tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 115  ip -> 3   addr -> 3   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 116  ip -> 3   addr -> 3   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 117  ip -> 3   addr -> 3   mc -> 1  control -> InstructionControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 118  ip -> 3   addr -> 3   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 119  ip -> 3   addr -> 3   mc -> 12 control -> DataStackControl.Push tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 120  ip -> 3   addr -> 3   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 121  ip -> 4   addr -> 3   mc -> 13 control -> InstractionPointerControl.INC tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 122  ip -> 4   addr -> 3   mc -> 13 control -> InstructionControl.INC tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 123  ip -> 4   addr -> 3   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 124  ip -> 4   addr -> 4   mc -> 0  control -> AddressRegisterControl.PC tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 125  ip -> 4   addr -> 4   mc -> 0  control -> MemoryControl.READ tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 126  ip -> 4   addr -> 4   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 127  ip -> 4   addr -> 4   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 128  ip -> 4   addr -> 4   mc -> 1  control -> InstructionControl.INC tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 129  ip -> 4   addr -> 4   mc -> 46 control -> MicrocodeAddressControl.IR tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  Output: am << m
+  [DEBUG]  tick -> 130  ip -> 4   addr -> 4   mc -> 46 control -> IOOperation.EMIT tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 131  ip -> 4   addr -> 4   mc -> 47 control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 132  ip -> 4   addr -> 4   mc -> 47 control -> BufferRegisterControl.DS tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 133  ip -> 4   addr -> 4   mc -> 47 control -> TopOfStackControl.BR tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 134  ip -> 4   addr -> 4   mc -> 48 control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 135  ip -> 5   addr -> 4   mc -> 48 control -> InstractionPointerControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 136  ip -> 5   addr -> 4   mc -> 48 control -> InstructionControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 137  ip -> 5   addr -> 4   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 138  ip -> 5   addr -> 5   mc -> 0  control -> AddressRegisterControl.PC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 139  ip -> 5   addr -> 5   mc -> 0  control -> MemoryControl.READ tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 140  ip -> 5   addr -> 5   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 141  ip -> 5   addr -> 5   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 142  ip -> 5   addr -> 5   mc -> 1  control -> InstructionControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 143  ip -> 5   addr -> 5   mc -> 25 control -> MicrocodeAddressControl.IR tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 144  ip -> 5   addr -> 5   mc -> 25 control -> DataStackControl.Push tos -> 109   
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 145  ip -> 5   addr -> 5   mc -> 25 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 146  ip -> 5   addr -> 5   mc -> 26 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 147  ip -> 6   addr -> 5   mc -> 26 control -> InstractionPointerControl.INC tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 148  ip -> 6   addr -> 5   mc -> 26 control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 149  ip -> 6   addr -> 5   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 150  ip -> 6   addr -> 6   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 151  ip -> 6   addr -> 6   mc -> 0  control -> MemoryControl.READ tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 152  ip -> 6   addr -> 6   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 153  ip -> 6   addr -> 6   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 154  ip -> 6   addr -> 6   mc -> 1  control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 155  ip -> 6   addr -> 6   mc -> 19 control -> MicrocodeAddressControl.IR tos -> 0     
+  stack -> [97, 109, 109]
+  [DEBUG]  tick -> 156  ip -> 6   addr -> 6   mc -> 19 control -> ALUValuesControl.VAR tos -> 0     
+  stack -> [97, 109]
+  [DEBUG]  tick -> 157  ip -> 6   addr -> 6   mc -> 19 control -> AluOperation.EQ tos -> 0     
+  stack -> [97, 109]
+  [DEBUG]  tick -> 158  ip -> 6   addr -> 6   mc -> 20 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109]
+  [DEBUG]  tick -> 159  ip -> 6   addr -> 6   mc -> 20 control -> TopOfStackControl.ALU tos -> False 
+  stack -> [97, 109]
+  [DEBUG]  tick -> 160  ip -> 7   addr -> 6   mc -> 20 control -> InstractionPointerControl.INC tos -> False 
+  stack -> [97, 109]
+  [DEBUG]  tick -> 161  ip -> 7   addr -> 6   mc -> 20 control -> InstructionControl.INC tos -> False 
+  stack -> [97, 109]
+  [DEBUG]  tick -> 162  ip -> 7   addr -> 6   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> False 
+  stack -> [97, 109]
+  [DEBUG]  tick -> 163  ip -> 7   addr -> 7   mc -> 0  control -> AddressRegisterControl.PC tos -> False 
+  stack -> [97, 109]
+  [DEBUG]  tick -> 164  ip -> 7   addr -> 7   mc -> 0  control -> MemoryControl.READ tos -> False 
+  stack -> [97, 109]
+  [DEBUG]  tick -> 165  ip -> 7   addr -> 7   mc -> 1  control -> MicrocodeAddressControl.INC tos -> False 
+  stack -> [97, 109]
+  [DEBUG]  tick -> 166  ip -> 7   addr -> 7   mc -> 1  control -> InstructionRegisterControl.MEM tos -> False 
+  stack -> [97, 109]
+  [DEBUG]  tick -> 167  ip -> 7   addr -> 7   mc -> 1  control -> InstructionControl.INC tos -> False 
+  stack -> [97, 109]
+  [DEBUG]  tick -> 168  ip -> 7   addr -> 7   mc -> 35 control -> MicrocodeAddressControl.IR tos -> False 
+  stack -> [97, 109]
+  [DEBUG]  tick -> 169  ip -> 7   addr -> 7   mc -> 35 control -> DataStackControl.Push tos -> False 
+  stack -> [97, 109, False]
+  [DEBUG]  tick -> 170  ip -> 7   addr -> 7   mc -> 35 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 109, False]
+  [DEBUG]  tick -> 171  ip -> 0   addr -> 7   mc -> 35 control -> JumpOperation.JZS tos -> 0     
+  stack -> [97, 109, False]
+  [DEBUG]  tick -> 172  ip -> 0   addr -> 7   mc -> 36 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, False]
+  [DEBUG]  tick -> 173  ip -> 0   addr -> 7   mc -> 36 control -> DataStackControl.Pop tos -> 0     
+  stack -> [97, 109]
+  [DEBUG]  tick -> 174  ip -> 0   addr -> 7   mc -> 36 control -> BufferRegisterControl.DS tos -> 0     
+  stack -> [97]
+  [DEBUG]  tick -> 175  ip -> 0   addr -> 7   mc -> 36 control -> TopOfStackControl.BR tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 176  ip -> 0   addr -> 7   mc -> 37 control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 177  ip -> 1   addr -> 7   mc -> 37 control -> InstractionPointerControl.INC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 178  ip -> 1   addr -> 7   mc -> 37 control -> InstructionControl.INC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 179  ip -> 1   addr -> 7   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 180  ip -> 1   addr -> 1   mc -> 0  control -> AddressRegisterControl.PC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 181  ip -> 1   addr -> 1   mc -> 0  control -> MemoryControl.READ tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 182  ip -> 1   addr -> 1   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 183  ip -> 1   addr -> 1   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 184  ip -> 1   addr -> 1   mc -> 1  control -> InstructionControl.INC tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 185  ip -> 1   addr -> 1   mc -> 44 control -> MicrocodeAddressControl.IR tos -> 109   
+  stack -> [97]
+  [DEBUG]  tick -> 186  ip -> 1   addr -> 1   mc -> 44 control -> DataStackControl.Push tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 187  ip -> 1   addr -> 1   mc -> 45 control -> MicrocodeAddressControl.INC tos -> 109   
+  stack -> [97, 109]
+  [DEBUG]  Input: o
+  [DEBUG]  tick -> 188  ip -> 1   addr -> 1   mc -> 45 control -> IOOperation.READ tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 189  ip -> 1   addr -> 1   mc -> 45 control -> InstructionControl.INC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 190  ip -> 2   addr -> 1   mc -> 45 control -> InstractionPointerControl.INC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 191  ip -> 2   addr -> 1   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 192  ip -> 2   addr -> 2   mc -> 0  control -> AddressRegisterControl.PC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 193  ip -> 2   addr -> 2   mc -> 0  control -> MemoryControl.READ tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 194  ip -> 2   addr -> 2   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 195  ip -> 2   addr -> 2   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 196  ip -> 2   addr -> 2   mc -> 1  control -> InstructionControl.INC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 197  ip -> 2   addr -> 2   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 198  ip -> 2   addr -> 2   mc -> 12 control -> DataStackControl.Push tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 199  ip -> 2   addr -> 2   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 200  ip -> 3   addr -> 2   mc -> 13 control -> InstractionPointerControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 201  ip -> 3   addr -> 2   mc -> 13 control -> InstructionControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 202  ip -> 3   addr -> 2   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 203  ip -> 3   addr -> 3   mc -> 0  control -> AddressRegisterControl.PC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 204  ip -> 3   addr -> 3   mc -> 0  control -> MemoryControl.READ tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 205  ip -> 3   addr -> 3   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 206  ip -> 3   addr -> 3   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 207  ip -> 3   addr -> 3   mc -> 1  control -> InstructionControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 208  ip -> 3   addr -> 3   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 209  ip -> 3   addr -> 3   mc -> 12 control -> DataStackControl.Push tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 210  ip -> 3   addr -> 3   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 211  ip -> 4   addr -> 3   mc -> 13 control -> InstractionPointerControl.INC tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 212  ip -> 4   addr -> 3   mc -> 13 control -> InstructionControl.INC tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 213  ip -> 4   addr -> 3   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 214  ip -> 4   addr -> 4   mc -> 0  control -> AddressRegisterControl.PC tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 215  ip -> 4   addr -> 4   mc -> 0  control -> MemoryControl.READ tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 216  ip -> 4   addr -> 4   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 217  ip -> 4   addr -> 4   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 218  ip -> 4   addr -> 4   mc -> 1  control -> InstructionControl.INC tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 219  ip -> 4   addr -> 4   mc -> 46 control -> MicrocodeAddressControl.IR tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  Output: amo << o
+  [DEBUG]  tick -> 220  ip -> 4   addr -> 4   mc -> 46 control -> IOOperation.EMIT tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 221  ip -> 4   addr -> 4   mc -> 47 control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 222  ip -> 4   addr -> 4   mc -> 47 control -> BufferRegisterControl.DS tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 223  ip -> 4   addr -> 4   mc -> 47 control -> TopOfStackControl.BR tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 224  ip -> 4   addr -> 4   mc -> 48 control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 225  ip -> 5   addr -> 4   mc -> 48 control -> InstractionPointerControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 226  ip -> 5   addr -> 4   mc -> 48 control -> InstructionControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 227  ip -> 5   addr -> 4   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 228  ip -> 5   addr -> 5   mc -> 0  control -> AddressRegisterControl.PC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 229  ip -> 5   addr -> 5   mc -> 0  control -> MemoryControl.READ tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 230  ip -> 5   addr -> 5   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 231  ip -> 5   addr -> 5   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 232  ip -> 5   addr -> 5   mc -> 1  control -> InstructionControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 233  ip -> 5   addr -> 5   mc -> 25 control -> MicrocodeAddressControl.IR tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 234  ip -> 5   addr -> 5   mc -> 25 control -> DataStackControl.Push tos -> 111   
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 235  ip -> 5   addr -> 5   mc -> 25 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 236  ip -> 5   addr -> 5   mc -> 26 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 237  ip -> 6   addr -> 5   mc -> 26 control -> InstractionPointerControl.INC tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 238  ip -> 6   addr -> 5   mc -> 26 control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 239  ip -> 6   addr -> 5   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 240  ip -> 6   addr -> 6   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 241  ip -> 6   addr -> 6   mc -> 0  control -> MemoryControl.READ tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 242  ip -> 6   addr -> 6   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 243  ip -> 6   addr -> 6   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 244  ip -> 6   addr -> 6   mc -> 1  control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 245  ip -> 6   addr -> 6   mc -> 19 control -> MicrocodeAddressControl.IR tos -> 0     
+  stack -> [97, 109, 111, 111]
+  [DEBUG]  tick -> 246  ip -> 6   addr -> 6   mc -> 19 control -> ALUValuesControl.VAR tos -> 0     
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 247  ip -> 6   addr -> 6   mc -> 19 control -> AluOperation.EQ tos -> 0     
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 248  ip -> 6   addr -> 6   mc -> 20 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 249  ip -> 6   addr -> 6   mc -> 20 control -> TopOfStackControl.ALU tos -> False 
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 250  ip -> 7   addr -> 6   mc -> 20 control -> InstractionPointerControl.INC tos -> False 
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 251  ip -> 7   addr -> 6   mc -> 20 control -> InstructionControl.INC tos -> False 
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 252  ip -> 7   addr -> 6   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> False 
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 253  ip -> 7   addr -> 7   mc -> 0  control -> AddressRegisterControl.PC tos -> False 
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 254  ip -> 7   addr -> 7   mc -> 0  control -> MemoryControl.READ tos -> False 
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 255  ip -> 7   addr -> 7   mc -> 1  control -> MicrocodeAddressControl.INC tos -> False 
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 256  ip -> 7   addr -> 7   mc -> 1  control -> InstructionRegisterControl.MEM tos -> False 
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 257  ip -> 7   addr -> 7   mc -> 1  control -> InstructionControl.INC tos -> False 
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 258  ip -> 7   addr -> 7   mc -> 35 control -> MicrocodeAddressControl.IR tos -> False 
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 259  ip -> 7   addr -> 7   mc -> 35 control -> DataStackControl.Push tos -> False 
+  stack -> [97, 109, 111, False]
+  [DEBUG]  tick -> 260  ip -> 7   addr -> 7   mc -> 35 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 109, 111, False]
+  [DEBUG]  tick -> 261  ip -> 0   addr -> 7   mc -> 35 control -> JumpOperation.JZS tos -> 0     
+  stack -> [97, 109, 111, False]
+  [DEBUG]  tick -> 262  ip -> 0   addr -> 7   mc -> 36 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, False]
+  [DEBUG]  tick -> 263  ip -> 0   addr -> 7   mc -> 36 control -> DataStackControl.Pop tos -> 0     
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 264  ip -> 0   addr -> 7   mc -> 36 control -> BufferRegisterControl.DS tos -> 0     
+  stack -> [97, 109]
+  [DEBUG]  tick -> 265  ip -> 0   addr -> 7   mc -> 36 control -> TopOfStackControl.BR tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 266  ip -> 0   addr -> 7   mc -> 37 control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 267  ip -> 1   addr -> 7   mc -> 37 control -> InstractionPointerControl.INC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 268  ip -> 1   addr -> 7   mc -> 37 control -> InstructionControl.INC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 269  ip -> 1   addr -> 7   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 270  ip -> 1   addr -> 1   mc -> 0  control -> AddressRegisterControl.PC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 271  ip -> 1   addr -> 1   mc -> 0  control -> MemoryControl.READ tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 272  ip -> 1   addr -> 1   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 273  ip -> 1   addr -> 1   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 274  ip -> 1   addr -> 1   mc -> 1  control -> InstructionControl.INC tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 275  ip -> 1   addr -> 1   mc -> 44 control -> MicrocodeAddressControl.IR tos -> 111   
+  stack -> [97, 109]
+  [DEBUG]  tick -> 276  ip -> 1   addr -> 1   mc -> 44 control -> DataStackControl.Push tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 277  ip -> 1   addr -> 1   mc -> 45 control -> MicrocodeAddressControl.INC tos -> 111   
+  stack -> [97, 109, 111]
+  [DEBUG]  Input: g
+  [DEBUG]  tick -> 278  ip -> 1   addr -> 1   mc -> 45 control -> IOOperation.READ tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 279  ip -> 1   addr -> 1   mc -> 45 control -> InstructionControl.INC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 280  ip -> 2   addr -> 1   mc -> 45 control -> InstractionPointerControl.INC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 281  ip -> 2   addr -> 1   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 282  ip -> 2   addr -> 2   mc -> 0  control -> AddressRegisterControl.PC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 283  ip -> 2   addr -> 2   mc -> 0  control -> MemoryControl.READ tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 284  ip -> 2   addr -> 2   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 285  ip -> 2   addr -> 2   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 286  ip -> 2   addr -> 2   mc -> 1  control -> InstructionControl.INC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 287  ip -> 2   addr -> 2   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 288  ip -> 2   addr -> 2   mc -> 12 control -> DataStackControl.Push tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 289  ip -> 2   addr -> 2   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 290  ip -> 3   addr -> 2   mc -> 13 control -> InstractionPointerControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 291  ip -> 3   addr -> 2   mc -> 13 control -> InstructionControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 292  ip -> 3   addr -> 2   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 293  ip -> 3   addr -> 3   mc -> 0  control -> AddressRegisterControl.PC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 294  ip -> 3   addr -> 3   mc -> 0  control -> MemoryControl.READ tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 295  ip -> 3   addr -> 3   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 296  ip -> 3   addr -> 3   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 297  ip -> 3   addr -> 3   mc -> 1  control -> InstructionControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 298  ip -> 3   addr -> 3   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 299  ip -> 3   addr -> 3   mc -> 12 control -> DataStackControl.Push tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 300  ip -> 3   addr -> 3   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 301  ip -> 4   addr -> 3   mc -> 13 control -> InstractionPointerControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 302  ip -> 4   addr -> 3   mc -> 13 control -> InstructionControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 303  ip -> 4   addr -> 3   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 304  ip -> 4   addr -> 4   mc -> 0  control -> AddressRegisterControl.PC tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 305  ip -> 4   addr -> 4   mc -> 0  control -> MemoryControl.READ tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 306  ip -> 4   addr -> 4   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 307  ip -> 4   addr -> 4   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 308  ip -> 4   addr -> 4   mc -> 1  control -> InstructionControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 309  ip -> 4   addr -> 4   mc -> 46 control -> MicrocodeAddressControl.IR tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  Output: amog << g
+  [DEBUG]  tick -> 310  ip -> 4   addr -> 4   mc -> 46 control -> IOOperation.EMIT tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 311  ip -> 4   addr -> 4   mc -> 47 control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 312  ip -> 4   addr -> 4   mc -> 47 control -> BufferRegisterControl.DS tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 313  ip -> 4   addr -> 4   mc -> 47 control -> TopOfStackControl.BR tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 314  ip -> 4   addr -> 4   mc -> 48 control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 315  ip -> 5   addr -> 4   mc -> 48 control -> InstractionPointerControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 316  ip -> 5   addr -> 4   mc -> 48 control -> InstructionControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 317  ip -> 5   addr -> 4   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 318  ip -> 5   addr -> 5   mc -> 0  control -> AddressRegisterControl.PC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 319  ip -> 5   addr -> 5   mc -> 0  control -> MemoryControl.READ tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 320  ip -> 5   addr -> 5   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 321  ip -> 5   addr -> 5   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 322  ip -> 5   addr -> 5   mc -> 1  control -> InstructionControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 323  ip -> 5   addr -> 5   mc -> 25 control -> MicrocodeAddressControl.IR tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 324  ip -> 5   addr -> 5   mc -> 25 control -> DataStackControl.Push tos -> 103   
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 325  ip -> 5   addr -> 5   mc -> 25 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 326  ip -> 5   addr -> 5   mc -> 26 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 327  ip -> 6   addr -> 5   mc -> 26 control -> InstractionPointerControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 328  ip -> 6   addr -> 5   mc -> 26 control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 329  ip -> 6   addr -> 5   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 330  ip -> 6   addr -> 6   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 331  ip -> 6   addr -> 6   mc -> 0  control -> MemoryControl.READ tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 332  ip -> 6   addr -> 6   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 333  ip -> 6   addr -> 6   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 334  ip -> 6   addr -> 6   mc -> 1  control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 335  ip -> 6   addr -> 6   mc -> 19 control -> MicrocodeAddressControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 103]
+  [DEBUG]  tick -> 336  ip -> 6   addr -> 6   mc -> 19 control -> ALUValuesControl.VAR tos -> 0     
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 337  ip -> 6   addr -> 6   mc -> 19 control -> AluOperation.EQ tos -> 0     
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 338  ip -> 6   addr -> 6   mc -> 20 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 339  ip -> 6   addr -> 6   mc -> 20 control -> TopOfStackControl.ALU tos -> False 
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 340  ip -> 7   addr -> 6   mc -> 20 control -> InstractionPointerControl.INC tos -> False 
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 341  ip -> 7   addr -> 6   mc -> 20 control -> InstructionControl.INC tos -> False 
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 342  ip -> 7   addr -> 6   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> False 
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 343  ip -> 7   addr -> 7   mc -> 0  control -> AddressRegisterControl.PC tos -> False 
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 344  ip -> 7   addr -> 7   mc -> 0  control -> MemoryControl.READ tos -> False 
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 345  ip -> 7   addr -> 7   mc -> 1  control -> MicrocodeAddressControl.INC tos -> False 
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 346  ip -> 7   addr -> 7   mc -> 1  control -> InstructionRegisterControl.MEM tos -> False 
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 347  ip -> 7   addr -> 7   mc -> 1  control -> InstructionControl.INC tos -> False 
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 348  ip -> 7   addr -> 7   mc -> 35 control -> MicrocodeAddressControl.IR tos -> False 
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 349  ip -> 7   addr -> 7   mc -> 35 control -> DataStackControl.Push tos -> False 
+  stack -> [97, 109, 111, 103, False]
+  [DEBUG]  tick -> 350  ip -> 7   addr -> 7   mc -> 35 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, False]
+  [DEBUG]  tick -> 351  ip -> 0   addr -> 7   mc -> 35 control -> JumpOperation.JZS tos -> 0     
+  stack -> [97, 109, 111, 103, False]
+  [DEBUG]  tick -> 352  ip -> 0   addr -> 7   mc -> 36 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, False]
+  [DEBUG]  tick -> 353  ip -> 0   addr -> 7   mc -> 36 control -> DataStackControl.Pop tos -> 0     
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 354  ip -> 0   addr -> 7   mc -> 36 control -> BufferRegisterControl.DS tos -> 0     
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 355  ip -> 0   addr -> 7   mc -> 36 control -> TopOfStackControl.BR tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 356  ip -> 0   addr -> 7   mc -> 37 control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 357  ip -> 1   addr -> 7   mc -> 37 control -> InstractionPointerControl.INC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 358  ip -> 1   addr -> 7   mc -> 37 control -> InstructionControl.INC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 359  ip -> 1   addr -> 7   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 360  ip -> 1   addr -> 1   mc -> 0  control -> AddressRegisterControl.PC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 361  ip -> 1   addr -> 1   mc -> 0  control -> MemoryControl.READ tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 362  ip -> 1   addr -> 1   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 363  ip -> 1   addr -> 1   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 364  ip -> 1   addr -> 1   mc -> 1  control -> InstructionControl.INC tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 365  ip -> 1   addr -> 1   mc -> 44 control -> MicrocodeAddressControl.IR tos -> 103   
+  stack -> [97, 109, 111]
+  [DEBUG]  tick -> 366  ip -> 1   addr -> 1   mc -> 44 control -> DataStackControl.Push tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 367  ip -> 1   addr -> 1   mc -> 45 control -> MicrocodeAddressControl.INC tos -> 103   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  Input: u
+  [DEBUG]  tick -> 368  ip -> 1   addr -> 1   mc -> 45 control -> IOOperation.READ tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 369  ip -> 1   addr -> 1   mc -> 45 control -> InstructionControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 370  ip -> 2   addr -> 1   mc -> 45 control -> InstractionPointerControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 371  ip -> 2   addr -> 1   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 372  ip -> 2   addr -> 2   mc -> 0  control -> AddressRegisterControl.PC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 373  ip -> 2   addr -> 2   mc -> 0  control -> MemoryControl.READ tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 374  ip -> 2   addr -> 2   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 375  ip -> 2   addr -> 2   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 376  ip -> 2   addr -> 2   mc -> 1  control -> InstructionControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 377  ip -> 2   addr -> 2   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 378  ip -> 2   addr -> 2   mc -> 12 control -> DataStackControl.Push tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 379  ip -> 2   addr -> 2   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 380  ip -> 3   addr -> 2   mc -> 13 control -> InstractionPointerControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 381  ip -> 3   addr -> 2   mc -> 13 control -> InstructionControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 382  ip -> 3   addr -> 2   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 383  ip -> 3   addr -> 3   mc -> 0  control -> AddressRegisterControl.PC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 384  ip -> 3   addr -> 3   mc -> 0  control -> MemoryControl.READ tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 385  ip -> 3   addr -> 3   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 386  ip -> 3   addr -> 3   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 387  ip -> 3   addr -> 3   mc -> 1  control -> InstructionControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 388  ip -> 3   addr -> 3   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 389  ip -> 3   addr -> 3   mc -> 12 control -> DataStackControl.Push tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 390  ip -> 3   addr -> 3   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 391  ip -> 4   addr -> 3   mc -> 13 control -> InstractionPointerControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 392  ip -> 4   addr -> 3   mc -> 13 control -> InstructionControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 393  ip -> 4   addr -> 3   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 394  ip -> 4   addr -> 4   mc -> 0  control -> AddressRegisterControl.PC tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 395  ip -> 4   addr -> 4   mc -> 0  control -> MemoryControl.READ tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 396  ip -> 4   addr -> 4   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 397  ip -> 4   addr -> 4   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 398  ip -> 4   addr -> 4   mc -> 1  control -> InstructionControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 399  ip -> 4   addr -> 4   mc -> 46 control -> MicrocodeAddressControl.IR tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  Output: amogu << u
+  [DEBUG]  tick -> 400  ip -> 4   addr -> 4   mc -> 46 control -> IOOperation.EMIT tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 401  ip -> 4   addr -> 4   mc -> 47 control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 402  ip -> 4   addr -> 4   mc -> 47 control -> BufferRegisterControl.DS tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 403  ip -> 4   addr -> 4   mc -> 47 control -> TopOfStackControl.BR tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 404  ip -> 4   addr -> 4   mc -> 48 control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 405  ip -> 5   addr -> 4   mc -> 48 control -> InstractionPointerControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 406  ip -> 5   addr -> 4   mc -> 48 control -> InstructionControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 407  ip -> 5   addr -> 4   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 408  ip -> 5   addr -> 5   mc -> 0  control -> AddressRegisterControl.PC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 409  ip -> 5   addr -> 5   mc -> 0  control -> MemoryControl.READ tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 410  ip -> 5   addr -> 5   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 411  ip -> 5   addr -> 5   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 412  ip -> 5   addr -> 5   mc -> 1  control -> InstructionControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 413  ip -> 5   addr -> 5   mc -> 25 control -> MicrocodeAddressControl.IR tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 414  ip -> 5   addr -> 5   mc -> 25 control -> DataStackControl.Push tos -> 117   
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 415  ip -> 5   addr -> 5   mc -> 25 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 416  ip -> 5   addr -> 5   mc -> 26 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 417  ip -> 6   addr -> 5   mc -> 26 control -> InstractionPointerControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 418  ip -> 6   addr -> 5   mc -> 26 control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 419  ip -> 6   addr -> 5   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 420  ip -> 6   addr -> 6   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 421  ip -> 6   addr -> 6   mc -> 0  control -> MemoryControl.READ tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 422  ip -> 6   addr -> 6   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 423  ip -> 6   addr -> 6   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 424  ip -> 6   addr -> 6   mc -> 1  control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 425  ip -> 6   addr -> 6   mc -> 19 control -> MicrocodeAddressControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 117]
+  [DEBUG]  tick -> 426  ip -> 6   addr -> 6   mc -> 19 control -> ALUValuesControl.VAR tos -> 0     
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 427  ip -> 6   addr -> 6   mc -> 19 control -> AluOperation.EQ tos -> 0     
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 428  ip -> 6   addr -> 6   mc -> 20 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 429  ip -> 6   addr -> 6   mc -> 20 control -> TopOfStackControl.ALU tos -> False 
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 430  ip -> 7   addr -> 6   mc -> 20 control -> InstractionPointerControl.INC tos -> False 
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 431  ip -> 7   addr -> 6   mc -> 20 control -> InstructionControl.INC tos -> False 
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 432  ip -> 7   addr -> 6   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> False 
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 433  ip -> 7   addr -> 7   mc -> 0  control -> AddressRegisterControl.PC tos -> False 
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 434  ip -> 7   addr -> 7   mc -> 0  control -> MemoryControl.READ tos -> False 
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 435  ip -> 7   addr -> 7   mc -> 1  control -> MicrocodeAddressControl.INC tos -> False 
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 436  ip -> 7   addr -> 7   mc -> 1  control -> InstructionRegisterControl.MEM tos -> False 
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 437  ip -> 7   addr -> 7   mc -> 1  control -> InstructionControl.INC tos -> False 
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 438  ip -> 7   addr -> 7   mc -> 35 control -> MicrocodeAddressControl.IR tos -> False 
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 439  ip -> 7   addr -> 7   mc -> 35 control -> DataStackControl.Push tos -> False 
+  stack -> [97, 109, 111, 103, 117, False]
+  [DEBUG]  tick -> 440  ip -> 7   addr -> 7   mc -> 35 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 117, False]
+  [DEBUG]  tick -> 441  ip -> 0   addr -> 7   mc -> 35 control -> JumpOperation.JZS tos -> 0     
+  stack -> [97, 109, 111, 103, 117, False]
+  [DEBUG]  tick -> 442  ip -> 0   addr -> 7   mc -> 36 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, False]
+  [DEBUG]  tick -> 443  ip -> 0   addr -> 7   mc -> 36 control -> DataStackControl.Pop tos -> 0     
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 444  ip -> 0   addr -> 7   mc -> 36 control -> BufferRegisterControl.DS tos -> 0     
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 445  ip -> 0   addr -> 7   mc -> 36 control -> TopOfStackControl.BR tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 446  ip -> 0   addr -> 7   mc -> 37 control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 447  ip -> 1   addr -> 7   mc -> 37 control -> InstractionPointerControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 448  ip -> 1   addr -> 7   mc -> 37 control -> InstructionControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 449  ip -> 1   addr -> 7   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 450  ip -> 1   addr -> 1   mc -> 0  control -> AddressRegisterControl.PC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 451  ip -> 1   addr -> 1   mc -> 0  control -> MemoryControl.READ tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 452  ip -> 1   addr -> 1   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 453  ip -> 1   addr -> 1   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 454  ip -> 1   addr -> 1   mc -> 1  control -> InstructionControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 455  ip -> 1   addr -> 1   mc -> 44 control -> MicrocodeAddressControl.IR tos -> 117   
+  stack -> [97, 109, 111, 103]
+  [DEBUG]  tick -> 456  ip -> 1   addr -> 1   mc -> 44 control -> DataStackControl.Push tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 457  ip -> 1   addr -> 1   mc -> 45 control -> MicrocodeAddressControl.INC tos -> 117   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  Input: s
+  [DEBUG]  tick -> 458  ip -> 1   addr -> 1   mc -> 45 control -> IOOperation.READ tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 459  ip -> 1   addr -> 1   mc -> 45 control -> InstructionControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 460  ip -> 2   addr -> 1   mc -> 45 control -> InstractionPointerControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 461  ip -> 2   addr -> 1   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 462  ip -> 2   addr -> 2   mc -> 0  control -> AddressRegisterControl.PC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 463  ip -> 2   addr -> 2   mc -> 0  control -> MemoryControl.READ tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 464  ip -> 2   addr -> 2   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 465  ip -> 2   addr -> 2   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 466  ip -> 2   addr -> 2   mc -> 1  control -> InstructionControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 467  ip -> 2   addr -> 2   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 468  ip -> 2   addr -> 2   mc -> 12 control -> DataStackControl.Push tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 469  ip -> 2   addr -> 2   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 470  ip -> 3   addr -> 2   mc -> 13 control -> InstractionPointerControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 471  ip -> 3   addr -> 2   mc -> 13 control -> InstructionControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 472  ip -> 3   addr -> 2   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 473  ip -> 3   addr -> 3   mc -> 0  control -> AddressRegisterControl.PC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 474  ip -> 3   addr -> 3   mc -> 0  control -> MemoryControl.READ tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 475  ip -> 3   addr -> 3   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 476  ip -> 3   addr -> 3   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 477  ip -> 3   addr -> 3   mc -> 1  control -> InstructionControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 478  ip -> 3   addr -> 3   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 479  ip -> 3   addr -> 3   mc -> 12 control -> DataStackControl.Push tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 480  ip -> 3   addr -> 3   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 481  ip -> 4   addr -> 3   mc -> 13 control -> InstractionPointerControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 482  ip -> 4   addr -> 3   mc -> 13 control -> InstructionControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 483  ip -> 4   addr -> 3   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 484  ip -> 4   addr -> 4   mc -> 0  control -> AddressRegisterControl.PC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 485  ip -> 4   addr -> 4   mc -> 0  control -> MemoryControl.READ tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 486  ip -> 4   addr -> 4   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 487  ip -> 4   addr -> 4   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 488  ip -> 4   addr -> 4   mc -> 1  control -> InstructionControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 489  ip -> 4   addr -> 4   mc -> 46 control -> MicrocodeAddressControl.IR tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  Output: amogus << s
+  [DEBUG]  tick -> 490  ip -> 4   addr -> 4   mc -> 46 control -> IOOperation.EMIT tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 491  ip -> 4   addr -> 4   mc -> 47 control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 492  ip -> 4   addr -> 4   mc -> 47 control -> BufferRegisterControl.DS tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 493  ip -> 4   addr -> 4   mc -> 47 control -> TopOfStackControl.BR tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 494  ip -> 4   addr -> 4   mc -> 48 control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 495  ip -> 5   addr -> 4   mc -> 48 control -> InstractionPointerControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 496  ip -> 5   addr -> 4   mc -> 48 control -> InstructionControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 497  ip -> 5   addr -> 4   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 498  ip -> 5   addr -> 5   mc -> 0  control -> AddressRegisterControl.PC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 499  ip -> 5   addr -> 5   mc -> 0  control -> MemoryControl.READ tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 500  ip -> 5   addr -> 5   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 501  ip -> 5   addr -> 5   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 502  ip -> 5   addr -> 5   mc -> 1  control -> InstructionControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 503  ip -> 5   addr -> 5   mc -> 25 control -> MicrocodeAddressControl.IR tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 504  ip -> 5   addr -> 5   mc -> 25 control -> DataStackControl.Push tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 505  ip -> 5   addr -> 5   mc -> 25 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 506  ip -> 5   addr -> 5   mc -> 26 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 507  ip -> 6   addr -> 5   mc -> 26 control -> InstractionPointerControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 508  ip -> 6   addr -> 5   mc -> 26 control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 509  ip -> 6   addr -> 5   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 510  ip -> 6   addr -> 6   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 511  ip -> 6   addr -> 6   mc -> 0  control -> MemoryControl.READ tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 512  ip -> 6   addr -> 6   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 513  ip -> 6   addr -> 6   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 514  ip -> 6   addr -> 6   mc -> 1  control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 515  ip -> 6   addr -> 6   mc -> 19 control -> MicrocodeAddressControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 115]
+  [DEBUG]  tick -> 516  ip -> 6   addr -> 6   mc -> 19 control -> ALUValuesControl.VAR tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 517  ip -> 6   addr -> 6   mc -> 19 control -> AluOperation.EQ tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 518  ip -> 6   addr -> 6   mc -> 20 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 519  ip -> 6   addr -> 6   mc -> 20 control -> TopOfStackControl.ALU tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 520  ip -> 7   addr -> 6   mc -> 20 control -> InstractionPointerControl.INC tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 521  ip -> 7   addr -> 6   mc -> 20 control -> InstructionControl.INC tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 522  ip -> 7   addr -> 6   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 523  ip -> 7   addr -> 7   mc -> 0  control -> AddressRegisterControl.PC tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 524  ip -> 7   addr -> 7   mc -> 0  control -> MemoryControl.READ tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 525  ip -> 7   addr -> 7   mc -> 1  control -> MicrocodeAddressControl.INC tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 526  ip -> 7   addr -> 7   mc -> 1  control -> InstructionRegisterControl.MEM tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 527  ip -> 7   addr -> 7   mc -> 1  control -> InstructionControl.INC tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 528  ip -> 7   addr -> 7   mc -> 35 control -> MicrocodeAddressControl.IR tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 529  ip -> 7   addr -> 7   mc -> 35 control -> DataStackControl.Push tos -> False 
+  stack -> [97, 109, 111, 103, 117, 115, False]
+  [DEBUG]  tick -> 530  ip -> 7   addr -> 7   mc -> 35 control -> TopOfStackControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, False]
+  [DEBUG]  tick -> 531  ip -> 0   addr -> 7   mc -> 35 control -> JumpOperation.JZS tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, False]
+  [DEBUG]  tick -> 532  ip -> 0   addr -> 7   mc -> 36 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, False]
+  [DEBUG]  tick -> 533  ip -> 0   addr -> 7   mc -> 36 control -> DataStackControl.Pop tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 534  ip -> 0   addr -> 7   mc -> 36 control -> BufferRegisterControl.DS tos -> 0     
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 535  ip -> 0   addr -> 7   mc -> 36 control -> TopOfStackControl.BR tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 536  ip -> 0   addr -> 7   mc -> 37 control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 537  ip -> 1   addr -> 7   mc -> 37 control -> InstractionPointerControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 538  ip -> 1   addr -> 7   mc -> 37 control -> InstructionControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 539  ip -> 1   addr -> 7   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 540  ip -> 1   addr -> 1   mc -> 0  control -> AddressRegisterControl.PC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 541  ip -> 1   addr -> 1   mc -> 0  control -> MemoryControl.READ tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 542  ip -> 1   addr -> 1   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 543  ip -> 1   addr -> 1   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 544  ip -> 1   addr -> 1   mc -> 1  control -> InstructionControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 545  ip -> 1   addr -> 1   mc -> 44 control -> MicrocodeAddressControl.IR tos -> 115   
+  stack -> [97, 109, 111, 103, 117]
+  [DEBUG]  tick -> 546  ip -> 1   addr -> 1   mc -> 44 control -> DataStackControl.Push tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 547  ip -> 1   addr -> 1   mc -> 45 control -> MicrocodeAddressControl.INC tos -> 115   
+  stack -> [97, 109, 111, 103, 117, 115]
+  [WARNING]  No input from user!
+  [DEBUG]  tick -> 548  ip -> 1   addr -> 1   mc -> 45 control -> IOOperation.READ tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 549  ip -> 1   addr -> 1   mc -> 45 control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 550  ip -> 2   addr -> 1   mc -> 45 control -> InstractionPointerControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 551  ip -> 2   addr -> 1   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 552  ip -> 2   addr -> 2   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 553  ip -> 2   addr -> 2   mc -> 0  control -> MemoryControl.READ tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 554  ip -> 2   addr -> 2   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 555  ip -> 2   addr -> 2   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 556  ip -> 2   addr -> 2   mc -> 1  control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 557  ip -> 2   addr -> 2   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115]
+  [DEBUG]  tick -> 558  ip -> 2   addr -> 2   mc -> 12 control -> DataStackControl.Push tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 559  ip -> 2   addr -> 2   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 560  ip -> 3   addr -> 2   mc -> 13 control -> InstractionPointerControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 561  ip -> 3   addr -> 2   mc -> 13 control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 562  ip -> 3   addr -> 2   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 563  ip -> 3   addr -> 3   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 564  ip -> 3   addr -> 3   mc -> 0  control -> MemoryControl.READ tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 565  ip -> 3   addr -> 3   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 566  ip -> 3   addr -> 3   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 567  ip -> 3   addr -> 3   mc -> 1  control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 568  ip -> 3   addr -> 3   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0]
+  [DEBUG]  tick -> 569  ip -> 3   addr -> 3   mc -> 12 control -> DataStackControl.Push tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  tick -> 570  ip -> 3   addr -> 3   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  tick -> 571  ip -> 4   addr -> 3   mc -> 13 control -> InstractionPointerControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  tick -> 572  ip -> 4   addr -> 3   mc -> 13 control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  tick -> 573  ip -> 4   addr -> 3   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  tick -> 574  ip -> 4   addr -> 4   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  tick -> 575  ip -> 4   addr -> 4   mc -> 0  control -> MemoryControl.READ tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  tick -> 576  ip -> 4   addr -> 4   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  tick -> 577  ip -> 4   addr -> 4   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  tick -> 578  ip -> 4   addr -> 4   mc -> 1  control -> InstructionControl.INC tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  tick -> 579  ip -> 4   addr -> 4   mc -> 46 control -> MicrocodeAddressControl.IR tos -> 0     
+  stack -> [97, 109, 111, 103, 117, 115, 0, 0]
+  [DEBUG]  Output:  amogus

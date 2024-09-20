@@ -1,6 +1,6 @@
 import logging
-from alu import ALU
-from controls import JumpOperation, AluOperation, AddressRegisterControl, DataStackControl, IOOperation, MemoryControl, InstractionPointerControl, TopOfStackControl
+from computer.alu import ALU
+from computer.controls import JumpOperation, AluOperation, AddressRegisterControl, DataStackControl, IOOperation, MemoryControl, InstractionPointerControl, TopOfStackControl
 from exceptions import StackOverflowError
 
 STACK_SIZE = 64
@@ -51,7 +51,7 @@ class DataPath:
         self.buffer_register = 0
         self.memory = Memory(code, var_memory_start)
         self.address_register = None
-        self.ip = 1
+        self.pc = 1
         self.top_of_stack = None
         self.input_buffer = input_buffer
         self.output_buffer = []
@@ -87,9 +87,9 @@ class DataPath:
     def control_instruction_pointer(self, signal):
         match signal:
             case InstractionPointerControl.IR:
-                self.ip = self.instruction_register["arg"]
+                self.pc = self.instruction_register["arg"]
             case InstractionPointerControl.INC:
-                self.ip += 1
+                self.pc += 1
 
     def load_alu_values(self):
         self.alu.first_operand = self.top_of_stack
@@ -100,8 +100,8 @@ class DataPath:
 
     def control_address_register(self, signal):
         match signal:
-            case AddressRegisterControl.IP:
-                self.address_register = self.ip
+            case AddressRegisterControl.PC:
+                self.address_register = self.pc
             case AddressRegisterControl.TOS:
                 self.address_register = self.top_of_stack
 
@@ -141,6 +141,6 @@ class DataPath:
         match signal:
             case JumpOperation.JZS:
                 if self.alu.zero_flag == 1:
-                    self.ip = self.top_of_stack
+                    self.pc = self.top_of_stack
             case JumpOperation.JMP:
-                self.ip = self.top_of_stack
+                self.pc = self.top_of_stack

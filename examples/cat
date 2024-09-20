@@ -1,0 +1,11 @@
+: cat
+    begin
+        #           
+        dup    
+        dup
+        emit    
+        0 =          
+    until                      
+;
+cat
+exit

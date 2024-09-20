@@ -1,0 +1,19 @@
+1 result !
+1 counter !
+10 N !
+begin
+    result @
+    counter @
+    *
+    result !
+    counter @
+    1
+    +
+    counter !
+    counter @
+    N @
+    >
+until
+result @
+.
+exit

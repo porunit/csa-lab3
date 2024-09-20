@@ -13,7 +13,7 @@ from exceptions import (
     ProcedureInLoopError,
     TranslatorArgumentsError,
 )
-from instruction import Opcode, Instruction, save_instructions_to_file
+from language.instruction import Opcode, Instruction, save_instructions_to_file
 
 token_set = {
     "+", "-", "*", "/", "mod", "dup", "drop", "swap", "begin", "until", "=", "!=", ">", "<", ".", "exit", "!", "@", "#", "if", "else", "endif", "emit"
@@ -207,6 +207,7 @@ def translate_text(text):
             index -= 1
             if is_else_block:
                 machine_code[if_index] = {"index": if_index, "opcode": Opcode.JMP.value, "arg": index + 1}
+                is_else_block = False
             else:
                 machine_code[if_index] = {"index": if_index, "opcode": Opcode.JZS.value, "arg": index + 1}
         elif tokens[0] == "begin":
@@ -220,11 +221,11 @@ def translate_text(text):
         elif tokens[0] in variable_table:
             if len(tokens) == 5:
                 machine_code.extend([
-                    {"index": index, "opcode": Opcode.ADDR_ON_TOP.value, "arg": variable_table[tokens[1]], "term": Instruction(term.line, 2, tokens[1])},
-                    {"index": index + 1, "opcode": Opcode.VAR_ON_TOP.value, "term": Instruction(term.line, 3, tokens[2])},
-                    {"index": index + 2, "opcode": Opcode.ADDR_ON_TOP.value, "arg": variable_table[tokens[0]], "term": Instruction(term.line, 1, tokens[0])},
-                    {"index": index + 3, "opcode": Opcode.SUM.value, "term": Instruction(term.line, 4, tokens[3])},
-                    {"index": index + 4, "opcode": Opcode.SAVE_VAR if tokens[4] == "!" else Opcode.VAR_ON_TOP.value, "term": Instruction(term.line, 5, tokens[4])},
+                    {"index": index, "opcode": Opcode.ADDR_ON_TOP.value, "arg": variable_table[tokens[1]], "term": Instruction(term.line_number, 2, tokens[1])},
+                    {"index": index + 1, "opcode": Opcode.VAR_ON_TOP.value, "term": Instruction(term.line_number, 3, tokens[2])},
+                    {"index": index + 2, "opcode": Opcode.ADDR_ON_TOP.value, "arg": variable_table[tokens[0]], "term": Instruction(term.line_number, 1, tokens[0])},
+                    {"index": index + 3, "opcode": Opcode.SUM.value, "term": Instruction(term.line_number, 4, tokens[3])},
+                    {"index": index + 4, "opcode": Opcode.SAVE_VAR if tokens[4] == "!" else Opcode.VAR_ON_TOP.value, "term": Instruction(term.line_number, 5, tokens[4])},
                 ])
                 index += 4
             else:

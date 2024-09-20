@@ -1,9 +1,8 @@
 import logging
 import sys
-sys.path.append('..')
+sys.path.append('.')
 
-from computer import ControlUnit
-from memory import DataPath
+from computer import control_unit, memory
 from exceptions import WrongMachineArgumentsError
 from language.instruction import load_instructions_from_file
 
@@ -19,9 +18,9 @@ def main(code_file, input_file):
         if line["opcode"] == "halt":
             start_of_variables = line_number + 1
             break
-    data_path = DataPath(code, input_token, start_of_variables)
-    control_unit = ControlUnit(data_path)
-    output, inst_count, tick_count = control_unit.run_machine()
+    data_path = memory.DataPath(code, input_token, start_of_variables)
+    control = control_unit.ControlUnit(data_path)
+    output, inst_count, tick_count = control.run_machine()
 
     print(f"{''.join(output)}\n\ninstraction count -> {inst_count!s}\ntick -> {tick_count!s}")
 

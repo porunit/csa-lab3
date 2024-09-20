@@ -7,7 +7,7 @@ class DataStackControl(Enum):
 
 
 class AddressRegisterControl(Enum):
-    IP = 0
+    PC = 0
     TOS = 1
 
 

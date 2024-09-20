@@ -1,10 +1,8 @@
-examples/
 .vscode/
 src/__pycache__/
+src/__init__.py
 src/language/__pycache__/
 src/computer/__pycache__/
 src/language/__init__.py
 src/computer/__init__.py
 logs
-src/golden/
-src/golden_test.py

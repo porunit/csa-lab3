@@ -4,10 +4,10 @@ import sys
 
 
 
-import memory
+from computer import memory
 from exceptions import InvalidSignalError
 from language.instruction import Opcode
-from controls import (
+from computer.controls import (
     JumpOperation,
     ProgramControl,
     AluOperation,
@@ -54,7 +54,7 @@ def opcode2microcode(opcode):
 
 microcode = [
     # Fetch next instraction - 0
-    [AddressRegisterControl.IP, MemoryControl.READ, MicrocodeAddressControl.INC],
+    [AddressRegisterControl.PC, MemoryControl.READ, MicrocodeAddressControl.INC],
     [InstructionRegisterControl.MEM, InstructionControl.INC, MicrocodeAddressControl.IR],
     # SUM - 2
     [ALUValuesControl.VAR, AluOperation.SUM, MicrocodeAddressControl.INC],
@@ -164,7 +164,7 @@ class ControlUnit:
             "tick -> {:4} ip -> {:3} addr -> {:3} mc -> {:2} control -> {:15} tos -> {:6}\n" "stack -> {}"
         ).format(
             str(self.tick),
-            str(self.datapath.ip),
+            str(self.datapath.pc),
             str(self.datapath.address_register),
             str(self.mc_adr),
             str(signal),

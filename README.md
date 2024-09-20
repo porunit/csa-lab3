@@ -2,7 +2,7 @@
 
 ---
 Шпак Всеволод Васильевич P3209
-`forth | stack | neum | mc | tick | binary | stream | mem | pstr | prob2`
+`forth | stack | neum | mc | tick | struct | stream | mem | pstr | prob2`
 Выполнен базовый вариант
 
 ## Язык программирования
@@ -383,3 +383,177 @@ __Форма Бэкуса-Наура:__
 
 15. **InstructionControl**
     - **INC (0)**: Увеличивает счетчик инструкций, переходя к следующей команде.
+
+## Тестирование
+
+Тестирование выполняется при помощи golden test-ов.
+
+Тесты реализованы в: [src/golden](./src/golden/)
+
+### Подробное описание программы для вычисления суммы четных чисел последовательности Фибоначчи
+
+Эта программа на основе архитектуры стека и фортообразного синтаксиса вычисляет сумму четных чисел в последовательности Фибоначчи, которые не превышают указанное максимальное значение (в данном случае — 4 000 000). Программа использует стековые операции, работу с переменными и условные конструкции. Рассмотрим программу детально.
+
+#### **1. Описание переменных:**
+
+Программа использует следующие переменные:
+- **`odd`**: Хранит текущее нечетное число последовательности Фибоначчи.
+- **`even`**: Хранит текущее четное число последовательности Фибоначчи.
+- **`sum`**: Хранит сумму четных чисел Фибоначчи, которые не превышают 4 000 000.
+- **`two`**: Хранит число 2 для операции нахождения четности.
+- **`zero`**: Хранит число 0 для сравнения с остатком от деления.
+- **`maximum`**: Максимальное значение для ограничения последовательности (в данном случае 4 000 000).
+
+#### **2. Описание процедуры `fib`:**
+
+```
+: fib
+    odd @          \ Помещает текущее значение переменной `odd` (нечетного числа Фибоначчи) на вершину стека.
+    even @         \ Помещает текущее значение переменной `even` (четного числа Фибоначчи) на стек.
+    +              \ Складывает значения переменных `odd` и `even`, результат кладется на стек.
+    even @         \ Снова получает текущее четное число и кладет его на стек.
+    odd !          \ Сохраняет старое четное число в переменной `odd` как новое нечетное число.
+    dup            \ Дублирует результат сложения `odd` и `even` (текущее четное число Фибоначчи).
+    dup            \ Еще раз дублирует результат, т. е. на стеке теперь два одинаковых числа.
+    even !         \ Сохраняет новое четное число в переменной `even`.
+    two @          \ Получает значение 2 для проверки четности числа.
+    swap           \ Меняет местами два верхних числа на стеке (число и 2).
+    mod            \ Делит число на 2 и кладет остаток от деления на стек (0, если число четное).
+    zero @         \ Получает значение переменной `zero` (0) и кладет его на стек.
+    =              \ Сравнивает остаток от деления с 0 (если число четное, результат будет 1).
+    if
+        sum @      \ Если число четное, получает текущую сумму четных чисел Фибоначчи и кладет на стек.
+        +          \ Складывает текущее четное число с суммой четных чисел.
+        sum !      \ Сохраняет обновленную сумму в переменной `sum`.
+    endif
+;
+```
+#### **3. Вывод**
+```
+ 4613732
+
+instraction count -> 1818
+tick -> 12501
+```
+
+### CI при помощи GH actions
+
+```yml
+name: Python CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/*"
+      - "src/**"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/*"
+      - "src/**"
+
+defaults:
+  run:
+    working-directory: ./
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+
+      - name: Run tests and collect coverage
+        run: |
+          poetry run coverage run -m pytest .
+          poetry run coverage report -m
+        env:
+          CI: true
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+
+      - name: Check code formatting with Ruff
+        run: poetry run ruff format .
+
+      - name: Run Ruff linters
+        run: poetry run ruff check --fix .
+```
+### Пример Журнала работы
+```
+[DEBUG]  tick -> 0    ip -> 1   addr -> 1   mc -> 0  control -> AddressRegisterControl.PC tos -> 0     
+stack -> []
+[DEBUG]  tick -> 1    ip -> 1   addr -> 1   mc -> 0  control -> MemoryControl.READ tos -> 0     
+stack -> []
+[DEBUG]  tick -> 2    ip -> 1   addr -> 1   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 0     
+stack -> []
+[DEBUG]  tick -> 3    ip -> 1   addr -> 1   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 0     
+stack -> []
+[DEBUG]  tick -> 4    ip -> 1   addr -> 1   mc -> 1  control -> InstructionControl.INC tos -> 0     
+stack -> []
+[DEBUG]  tick -> 5    ip -> 1   addr -> 1   mc -> 44 control -> MicrocodeAddressControl.IR tos -> 0     
+stack -> []
+[DEBUG]  tick -> 6    ip -> 1   addr -> 1   mc -> 44 control -> DataStackControl.Push tos -> 0     
+stack -> []
+[DEBUG]  tick -> 7    ip -> 1   addr -> 1   mc -> 45 control -> MicrocodeAddressControl.INC tos -> 0     
+stack -> []
+[DEBUG]  Input: a
+[DEBUG]  tick -> 8    ip -> 1   addr -> 1   mc -> 45 control -> IOOperation.READ tos -> 97    
+stack -> []
+[DEBUG]  tick -> 9    ip -> 1   addr -> 1   mc -> 45 control -> InstructionControl.INC tos -> 97    
+stack -> []
+[DEBUG]  tick -> 10   ip -> 2   addr -> 1   mc -> 45 control -> InstractionPointerControl.INC tos -> 97    
+stack -> []
+[DEBUG]  tick -> 11   ip -> 2   addr -> 1   mc -> 0  control -> MicrocodeAddressControl.ZERO tos -> 97    
+stack -> []
+[DEBUG]  tick -> 12   ip -> 2   addr -> 2   mc -> 0  control -> AddressRegisterControl.PC tos -> 97    
+stack -> []
+[DEBUG]  tick -> 13   ip -> 2   addr -> 2   mc -> 0  control -> MemoryControl.READ tos -> 97    
+stack -> []
+[DEBUG]  tick -> 14   ip -> 2   addr -> 2   mc -> 1  control -> MicrocodeAddressControl.INC tos -> 97    
+stack -> []
+[DEBUG]  tick -> 15   ip -> 2   addr -> 2   mc -> 1  control -> InstructionRegisterControl.MEM tos -> 97    
+stack -> []
+[DEBUG]  tick -> 16   ip -> 2   addr -> 2   mc -> 1  control -> InstructionControl.INC tos -> 97    
+stack -> []
+[DEBUG]  tick -> 17   ip -> 2   addr -> 2   mc -> 12 control -> MicrocodeAddressControl.IR tos -> 97    
+stack -> []
+[DEBUG]  tick -> 18   ip -> 2   addr -> 2   mc -> 12 control -> DataStackControl.Push tos -> 97    
+stack -> [97]
+[DEBUG]  tick -> 19   ip -> 2   addr -> 2   mc -> 13 control -> MicrocodeAddressControl.INC tos -> 97    
+stack -> [97]
+[DEBUG]  tick -> 20   ip -> 3   addr -> 2   mc -> 13 control -> InstractionPointerControl.INC tos -> 97    
+stack -> [97]
+[DEBUG]  tick -> 21   ip -> 3   addr -> 2   mc -> 13 control -> InstructionControl.INC tos -> 97    
+stack -> [97]
+```

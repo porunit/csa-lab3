@@ -7,7 +7,7 @@ class DataStackControl(Enum):
 
 
 class AddressRegisterControl(Enum):
-    PC = 0
+    IP = 0
     TOS = 1
 
 
@@ -15,7 +15,7 @@ class InstructionRegisterControl(Enum):
     MEM = 0
 
 
-class ProgramCounterControl(Enum):
+class InstractionPointerControl(Enum):
     IR = 0
     INC = 1
 

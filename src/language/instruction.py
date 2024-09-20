@@ -41,14 +41,12 @@ class Instruction(namedtuple("Instruction", "line_number word_number symbol")):
 
 
 def save_instructions_to_file(filename, instructions):
-    """Записывает инструкции в файл в формате JSON."""
     with open(filename, "w", encoding="utf-8") as file:
         json_instructions = [json.dumps(instruction) for instruction in instructions]
         file.write("[" + ",\n".join(json_instructions) + "]")
 
 
 def load_instructions_from_file(filename):
-    """Считывает инструкции из файла в формате JSON."""
     with open(filename, encoding="utf-8") as file:
         instructions = json.loads(file.read())
     

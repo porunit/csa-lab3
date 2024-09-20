@@ -20,7 +20,7 @@ from controls import (
     InstructionRegisterControl,
     MicrocodeAddressControl,
     MemoryControl,
-    ProgramCounterControl,
+    InstractionPointerControl,
     TopOfStackControl,
 )
 
@@ -54,125 +54,122 @@ def opcode2microcode(opcode):
 
 microcode = [
     # Fetch next instraction - 0
-    [AddressRegisterControl.PC, MemoryControl.READ, MicrocodeAddressControl.INC],
+    [AddressRegisterControl.IP, MemoryControl.READ, MicrocodeAddressControl.INC],
     [InstructionRegisterControl.MEM, InstructionControl.INC, MicrocodeAddressControl.IR],
     # SUM - 2
     [ALUValuesControl.VAR, AluOperation.SUM, MicrocodeAddressControl.INC],
-    [TopOfStackControl.ALU, ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [TopOfStackControl.ALU, InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # SUB - 4
     [ALUValuesControl.VAR, AluOperation.SUB, MicrocodeAddressControl.INC],
-    [TopOfStackControl.ALU, ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [TopOfStackControl.ALU, InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # MUL - 6
     [ALUValuesControl.VAR, AluOperation.MUL, MicrocodeAddressControl.INC],
-    [TopOfStackControl.ALU, ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [TopOfStackControl.ALU, InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # DIV - 8
     [ALUValuesControl.VAR, AluOperation.DIV, MicrocodeAddressControl.INC],
-    [TopOfStackControl.ALU, ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [TopOfStackControl.ALU, InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # MOD - 10
     [ALUValuesControl.VAR, AluOperation.MOD, MicrocodeAddressControl.INC],
-    [TopOfStackControl.ALU, ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [TopOfStackControl.ALU, InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # DUP - 12
     [DataStackControl.Push, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # DROP - 14
     [DataStackControl.Pop, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # SWAP - 16
     [BufferRegisterControl.DS, MicrocodeAddressControl.INC],
     [DataStackControl.Push, TopOfStackControl.BR, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # EQ - 19
     [ALUValuesControl.VAR, AluOperation.EQ, MicrocodeAddressControl.INC],
-    [TopOfStackControl.ALU, ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [TopOfStackControl.ALU, InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # MORE - 21
     [ALUValuesControl.VAR, AluOperation.MORE, MicrocodeAddressControl.INC],
-    [TopOfStackControl.ALU, ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [TopOfStackControl.ALU, InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # LESS - 23
     [ALUValuesControl.VAR, AluOperation.LESS, MicrocodeAddressControl.INC],
-    [TopOfStackControl.ALU, ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [TopOfStackControl.ALU, InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # PUSH - 25
     [DataStackControl.Push, TopOfStackControl.IR, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # ADR_ON_TOP - 27
     [DataStackControl.Push, TopOfStackControl.IR_VAR, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # SAVE_VAR - 29
     [AddressRegisterControl.TOS, BufferRegisterControl.DS, TopOfStackControl.BR, MemoryControl.TOS, MicrocodeAddressControl.INC],
     [MemoryControl.WRITE, BufferRegisterControl.DS, TopOfStackControl.BR, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # VAR_ON_TOP - 32
     [AddressRegisterControl.TOS, MemoryControl.READ, MicrocodeAddressControl.INC],
     [InstructionRegisterControl.MEM, TopOfStackControl.IR, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # JZS - 35
     [DataStackControl.Push, TopOfStackControl.IR, JumpOperation.JZS, MicrocodeAddressControl.INC],
     [DataStackControl.Pop, BufferRegisterControl.DS, TopOfStackControl.BR, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # JMP - 38
     [DataStackControl.Push, TopOfStackControl.IR, JumpOperation.JMP, MicrocodeAddressControl.INC],
     [BufferRegisterControl.DS, TopOfStackControl.BR, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # PRINT - 41
     [IOOperation.PRINT, MicrocodeAddressControl.INC],
     [BufferRegisterControl.DS, TopOfStackControl.BR, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # READ - 44
     [DataStackControl.Push, MicrocodeAddressControl.INC],
-    [IOOperation.READ, InstructionControl.INC, ProgramCounterControl.INC, MicrocodeAddressControl.ZERO],
+    [IOOperation.READ, InstructionControl.INC, InstractionPointerControl.INC, MicrocodeAddressControl.ZERO],
     # EMIT - 46
     [IOOperation.EMIT, MicrocodeAddressControl.INC],
     [BufferRegisterControl.DS, TopOfStackControl.BR, MicrocodeAddressControl.INC],
-    [ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
     # HALT - 49
     [InstructionControl.INC, ProgramControl.HALT],
     # NOT_EQ - 50
     [ALUValuesControl.VAR, AluOperation.NOT_EQ, MicrocodeAddressControl.INC],
-    [TopOfStackControl.ALU, ProgramCounterControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
+    [TopOfStackControl.ALU, InstractionPointerControl.INC, InstructionControl.INC, MicrocodeAddressControl.ZERO],
 ]
 
 
 class ControlUnit:
     mc_adr = None
-    memory = None
+    datapath = None
     tick = None
     instraction_count = None
     signal_handlers: ClassVar[dict] = {}
 
-    def __init__(self, memory):
+    def __init__(self, datapath):
         self.mc_adr = 0
-        self.memory = memory
+        self.datapath = datapath
         self.tick = 0
         self.instraction_count = 0
         self.signal_handlers = {
-            AddressRegisterControl: [getattr(self.memory, "control_address_register"), 2],
-            MemoryControl: [getattr(self.memory, "control_memory"), 2],
+            AddressRegisterControl: [getattr(self.datapath, "control_address_register"), 2],
+            MemoryControl: [getattr(self.datapath, "control_memory"), 2],
             MicrocodeAddressControl: [getattr(self, "control_microcode_address"), 2],
-            InstructionRegisterControl: [getattr(self.memory, "load_memory_to_instruction_register"), 1],
-            ALUValuesControl: [getattr(self.memory, "load_alu_values"), 1],
-            AluOperation: [getattr(self.memory, "execute_alu_operation"), 2],
-            TopOfStackControl: [getattr(self.memory, "control_top_of_stack"), 2],
-            ProgramCounterControl: [getattr(self.memory, "control_program_counter"), 2],
-            DataStackControl: [getattr(self.memory, "control_data_stack"), 2],
-            BufferRegisterControl: [getattr(self.memory, "write_to_buffer_register"), 1],
-            IOOperation: [getattr(self.memory, "control_io"), 2],
-            JumpOperation: [getattr(self.memory, "handle_jump"), 2],
+            InstructionRegisterControl: [getattr(self.datapath, "load_memory_to_instruction_register"), 1],
+            ALUValuesControl: [getattr(self.datapath, "load_alu_values"), 1],
+            AluOperation: [getattr(self.datapath, "execute_alu_operation"), 2],
+            TopOfStackControl: [getattr(self.datapath, "control_top_of_stack"), 2],
+            InstractionPointerControl: [getattr(self.datapath, "control_instruction_pointer"), 2],
+            DataStackControl: [getattr(self.datapath, "control_data_stack"), 2],
+            BufferRegisterControl: [getattr(self.datapath, "write_to_buffer_register"), 1],
+            IOOperation: [getattr(self.datapath, "control_io"), 2],
+            JumpOperation: [getattr(self.datapath, "handle_jump"), 2],
             InstructionControl: [getattr(self, "inc_instraction_count"), 1],
         }
 
     def __repr__(self, signal):
         return (
-            "TICK: {:4} PC: {:3} ADDR: {:3} mcADDR: {:2} SIGNAL: {:15} TOS: {:6} Z: {:1} N: {:1} V: {:1}\n" "DS: {}"
+            "tick -> {:4} ip -> {:3} addr -> {:3} mc -> {:2} control -> {:15} tos -> {:6}\n" "stack -> {}"
         ).format(
             str(self.tick),
-            str(self.memory.pc),
-            str(self.memory.address_register),
+            str(self.datapath.ip),
+            str(self.datapath.address_register),
             str(self.mc_adr),
             str(signal),
-            str(self.memory.top_of_stack) if self.memory.top_of_stack is not None else "0",
-            str(self.memory.alu.zero_flag),
-            str(self.memory.alu.negative_flag),
-            str(self.memory.alu.overflow_flag),
-            self.memory.data_stack.stack,
+            str(self.datapath.top_of_stack) if self.datapath.top_of_stack is not None else "0",
+            self.datapath.data_stack.stack,
         )
 
     def inc_tick(self):
@@ -199,7 +196,7 @@ class ControlUnit:
     def control_microcode_address(self, signal):
         match signal:
             case MicrocodeAddressControl.IR:
-                self.mc_adr = opcode2microcode(self.memory.instruction_register["opcode"])
+                self.mc_adr = opcode2microcode(self.datapath.instruction_register["opcode"])
             case MicrocodeAddressControl.INC:
                 self.mc_adr += 1
             case MicrocodeAddressControl.ZERO:
@@ -214,8 +211,8 @@ class ControlUnit:
         except OSError:
             pass
         output = ""
-        for stroka in "".join(self.memory.output_buffer).split("\n"):
+        for stroka in "".join(self.datapath.output_buffer).split("\n"):
             tabs = 4 * '\t'
             output += f"{tabs}{stroka}\n"
         logging.debug("output_buffer: \n" + output[0:-1])
-        return self.memory.output_buffer, self.instraction_count, self.tick
+        return self.datapath.output_buffer, self.instraction_count, self.tick

@@ -1,6 +1,6 @@
 import logging
 from alu import ALU
-from controls import JumpOperation, AluOperation, AddressRegisterControl, DataStackControl, IOOperation, MemoryControl, ProgramCounterControl, TopOfStackControl
+from controls import JumpOperation, AluOperation, AddressRegisterControl, DataStackControl, IOOperation, MemoryControl, InstractionPointerControl, TopOfStackControl
 from exceptions import StackOverflowError
 
 STACK_SIZE = 64
@@ -28,7 +28,6 @@ class Stack:
         self.stack.pop()
         return value
 
-
 class Memory:
     def __init__(self, code, var_memory_start):
         self.var_memory_start = var_memory_start
@@ -52,7 +51,7 @@ class DataPath:
         self.buffer_register = 0
         self.memory = Memory(code, var_memory_start)
         self.address_register = None
-        self.pc = 1
+        self.ip = 1
         self.top_of_stack = None
         self.input_buffer = input_buffer
         self.output_buffer = []
@@ -85,24 +84,24 @@ class DataPath:
             case TopOfStackControl.IR_VAR:
                 self.top_of_stack = int(self.instruction_register["arg"]) + self.memory.var_memory_start
 
-    def control_program_counter(self, signal):
+    def control_instruction_pointer(self, signal):
         match signal:
-            case ProgramCounterControl.IR:
-                self.pc = self.instruction_register["arg"]
-            case ProgramCounterControl.INC:
-                self.pc += 1
+            case InstractionPointerControl.IR:
+                self.ip = self.instruction_register["arg"]
+            case InstractionPointerControl.INC:
+                self.ip += 1
 
     def load_alu_values(self):
         self.alu.first_operand = self.top_of_stack
-        self.alu.second_operand = self.data_stack.pop()
+        self.alu.second_operand = self.data_stack.pop() 
 
     def execute_alu_operation(self, signal):
         self.alu.execute_operation(signal.value)
 
     def control_address_register(self, signal):
         match signal:
-            case AddressRegisterControl.PC:
-                self.address_register = self.pc
+            case AddressRegisterControl.IP:
+                self.address_register = self.ip
             case AddressRegisterControl.TOS:
                 self.address_register = self.top_of_stack
 
@@ -125,7 +124,7 @@ class DataPath:
     def control_io(self, signal):
         match signal:
             case IOOperation.PRINT:
-                self.output_buffer.append(str(self.top_of_stack))
+                self.output_buffer.append(" " + str(self.top_of_stack))
                 logging.debug(f"Output: {''.join(self.output_buffer)} << {str(self.top_of_stack)}")
             case IOOperation.READ:
                 if not self.input_buffer:
@@ -142,6 +141,6 @@ class DataPath:
         match signal:
             case JumpOperation.JZS:
                 if self.alu.zero_flag == 1:
-                    self.pc = self.top_of_stack
+                    self.ip = self.top_of_stack
             case JumpOperation.JMP:
-                self.pc = self.top_of_stack
+                self.ip = self.top_of_stack

@@ -23,7 +23,7 @@ def main(code_file, input_file):
     control_unit = ControlUnit(data_path)
     output, inst_count, tick_count = control_unit.run_machine()
 
-    print(f"{''.join(output)}\n\ninstraction_count: {inst_count!s}\ntick: {tick_count!s}")
+    print(f"{''.join(output)}\n\ninstraction count -> {inst_count!s}\ntick -> {tick_count!s}")
 
 
 if __name__ == "__main__":

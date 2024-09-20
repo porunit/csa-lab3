@@ -34,7 +34,6 @@ class Opcode(str, Enum):
     def __str__(self):
         return str(self.value)
 
-
 class Instruction(namedtuple("Instruction", "line_number word_number symbol")):
     """Описание инструкции в виде (номер строки, номер слова в строке, символ)"""
 

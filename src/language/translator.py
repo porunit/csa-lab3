@@ -30,7 +30,7 @@ def is_integer(value):
         return True
     except ValueError:
         return False
-
+    
 def get_opcode_for_symbol(symbol):
     return {
         "+": Opcode.SUM.value,

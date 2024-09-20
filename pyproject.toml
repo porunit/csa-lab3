@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "csa-lab3"
 version = "0.1.0"
-description = ""
+description = "desc"
 authors = ["Porunit"]
 readme = "README.md"
 package-mode = false 
